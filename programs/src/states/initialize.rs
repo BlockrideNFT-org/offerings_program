@@ -19,6 +19,7 @@ pub struct ProjectData {
     pub kyc_wallet: Pubkey,
     pub authority_wallet: Pubkey,
     pub last_offering_id: u32,
+    pub bump: u8,
 }
 
 impl ProjectData {
@@ -42,6 +43,7 @@ impl<'info> InitializeBlockride<'info> {
         &mut self,
         kyc_wallet: Pubkey,
         authority_wallet: Pubkey,
+        ProjectPDA_bump: u8,
     ) -> Result<String> {
         let null_pubkey = Pubkey::default();
         if self.ProjectPDA.authority_wallet != null_pubkey
@@ -52,6 +54,7 @@ impl<'info> InitializeBlockride<'info> {
 
         self.ProjectPDA.kyc_wallet = kyc_wallet;
         self.ProjectPDA.authority_wallet = authority_wallet;
+        self.ProjectPDA.bump = ProjectPDA_bump;
         msg!("Program initiated!!!"); // Message will show up in the tx logs
         Ok("Program inititated".to_owned())
     }
