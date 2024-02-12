@@ -10,12 +10,8 @@ pub enum InvestError {
     NotAllowed,
     #[msg("An error occured while transfering invesment funds from user")]
     DepositError,
-    #[msg("An Error occured")]
-    Error,
-    #[msg("The token invesment has ended")]
-    InvestmentEnded,
-    #[msg("The token invesment has not started")]
-    InvestmentHasNotStarted,
+    #[msg("Error")]
+    NoError,
     #[msg("Provided token mint is not the token mint associated with this offering")]
     TokenMintMismatch,
 }
